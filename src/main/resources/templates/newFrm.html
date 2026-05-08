@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="~{fragments/navbar.html :: header}"></head>
+    <body>
+        <div class="container">
+            <nav th:replace="~{fragments/navbar.html :: navbar( active = 'Employee')}"></nav>
+            <div class="row mb-4">
+                <div class="col-md-6 offset-md-3">
+                    <h2>Nuevo Empleado</h2>
+                    <hr/>
+                    <form th:action="@{'/save'}" th:object="${employee}" method="post">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Nombre</label>
+                            <input type="text" class="form-control" th:field="*{name}" id="name"/>
+                        </div>
+                        <div class="mb-3">
+                            <label for="managerId" class="form-label">Tipo de documento</label>
+                            <select class="form-control" id="managerId" name="managerId">
+                                <option value="DNI">DNI</option>
+                                <option value="DNI">RUC</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="document" class="form-label">Número de documento</label>
+                            <input type="number" class="form-control" th:field="*{document}" id="document"/>
+                        </div>
+
+                        <a th:href="@{'/'}" class="btn btn-danger">Cancelar</a>
+                        <button type="submit" class="btn btn-primary">Registrar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script th:replace="~{fragments/navbar.html :: footer-bootstrap}"></script>
+    </body>
+</html>

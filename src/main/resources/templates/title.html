@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/navbar.html :: header}">/head>
+
+<body>
+<main>
+    <div class="container px-4 pb-5">
+        <nav th:replace="~{fragments/navbar.html :: navbar( active = 'Employee')}"></nav>
+        <h1 class="pb-2 border-bottom">Sistema de Facturación Electrónica</h1>
+
+    </div>
+</main>
+</body>
+</html>
