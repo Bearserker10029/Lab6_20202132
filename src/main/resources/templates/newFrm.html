@@ -12,17 +12,19 @@
                         <div class="mb-3">
                             <label for="name" class="form-label">Nombre</label>
                             <input type="text" class="form-control" th:field="*{name}" id="name"/>
+                            <div class="text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
                         </div>
                         <div class="mb-3">
-                            <label for="managerId" class="form-label">Tipo de documento</label>
-                            <select class="form-control" id="managerId" name="managerId">
+                            <label for="document_type" class="form-label">Tipo de documento</label>
+                            <select class="form-control" id="document_type" name="document_type">
                                 <option value="DNI">DNI</option>
-                                <option value="DNI">RUC</option>
+                                <option value="RUC">RUC</option>
                             </select>
                         </div>
                         <div class="mb-3">
                             <label for="document" class="form-label">Número de documento</label>
                             <input type="number" class="form-control" th:field="*{document}" id="document"/>
+                            <div class="text-danger" th:if="${#fields.hasErrors('document')}" th:errors="*{document}"></div>
                         </div>
 
                         <a th:href="@{'/'}" class="btn btn-danger">Cancelar</a>
